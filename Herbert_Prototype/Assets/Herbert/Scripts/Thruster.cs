@@ -10,6 +10,8 @@ public class Thruster : MonoBehaviour {
     private GameObject afterBurner;
     private AudioSource audio;
 
+    private bool isThrusting;
+
     // Use this for initialization
     void Start() {
         body = GetComponent<Rigidbody2D>();
@@ -19,10 +21,18 @@ public class Thruster : MonoBehaviour {
         audio = GetComponent<AudioSource>();
     }
 
+    public void Thrust() {
+        body.AddForce(transform.rotation * Vector3.up * ship.thrusterPower);
+        isThrusting = true;
+    }
+
+    public void StopThrust() {
+        isThrusting = false;
+    }
+
     // Update is called once per frame
     void Update() {
-        if (Input.GetKey(key)) {
-            body.AddForce(transform.rotation * Vector3.up * ship.thrusterPower);
+        if (isThrusting) {
             afterBurner.SetActive(true);
         }
         else {
