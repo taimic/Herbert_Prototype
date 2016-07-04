@@ -2,12 +2,13 @@
 -target:library
 -nowarn:0169
 -out:Temp/Assembly-CSharp-firstpass.dll
--r:"C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll"
--r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll"
--r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll"
--r:"C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll"
--define:UNITY_5_3_OR_NEWER
--define:UNITY_5_3_5
+-r:D:/Programs/unity5/Editor/Data/Managed/UnityEngine.dll
+-r:D:/Programs/unity5/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
+-r:D:/Programs/unity5/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll
+-r:D:/Programs/unity5/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll
+-r:D:/Programs/unity5/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
+-r:D:/Programs/unity5/Editor/Data/Managed/UnityEditor.dll
+-define:UNITY_5_3_2
 -define:UNITY_5_3
 -define:UNITY_5
 -define:ENABLE_NEW_BUGREPORTER
@@ -123,5 +124,5 @@
 "Assets/Standard Assets/Utility/TimedObjectDestructor.cs"
 "Assets/Standard Assets/Utility/WaypointCircuit.cs"
 "Assets/Standard Assets/Utility/WaypointProgressTracker.cs"
--r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Runtime.Serialization.dll"
--r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.Linq.dll"
+-r:D:\Programs\unity5\Editor\Data\Mono\lib\mono\unity\System.Runtime.Serialization.dll
+-r:D:\Programs\unity5\Editor\Data\Mono\lib\mono\unity\System.Xml.Linq.dll
