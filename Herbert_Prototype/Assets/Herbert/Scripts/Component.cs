@@ -14,8 +14,8 @@ public class Component : MonoBehaviour, iControll {
     
     private Thruster[] basicThrusters;
 
-    Attach attatch = null;
-    Attach preAttatch = null;
+    iAttatch attatch = null;
+    iAttatch preAttatch = null;
 
     public int playerID = 0;
 
@@ -29,6 +29,8 @@ public class Component : MonoBehaviour, iControll {
         rb.angularDrag = drag;
 
         basicThrusters = GetComponentsInChildren<Thruster>();
+
+        attatch = GetComponentInChildren<iAttatch>();
     }
 
     void Update()
@@ -70,10 +72,16 @@ public class Component : MonoBehaviour, iControll {
     }
 
     public void Action() {
-        attatch.Action();
+        if (Input.GetAxis("p" + playerID + "_action") != 0) {
+            attatch.StartAction();
+        } else {
+            attatch.StopAction();
+        }
     }
 
     public void Rotate() {
-        attatch.Rotate();
+        float x = Input.GetAxis("p" + playerID + "_x");
+
+        attatch.Rotate(x);
     }
 }

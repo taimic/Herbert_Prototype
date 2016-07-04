@@ -2,6 +2,7 @@
 using System.Collections;
 
 public interface iAttatch {
-    void Action();
+    void StartAction();
+    void StopAction();
     void Rotate(float a);
 }

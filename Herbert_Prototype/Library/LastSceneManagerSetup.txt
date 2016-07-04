@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Herbert/Scenes/Phase_2.unity
+- path: Assets/Herbert/Scenes/Phase_D.unity
   isLoaded: 1
   isActive: 1
