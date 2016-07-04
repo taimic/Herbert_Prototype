@@ -17,6 +17,7 @@ ExportedObj/
 *.pidb
 *.booproj
 *.svd
+!*.obj
 
 
 # Unity3D generated meta files
@@ -24,8 +25,3 @@ ExportedObj/
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
-
-# Builds
-*.apk
-*.unitypackage
-Herbert_Prototype/Temp/UnityLockfile

@@ -46,8 +46,8 @@ public class Component : MonoBehaviour, iControll {
 
     // movement for phase
     public void Move() {
-        float x = Input.GetAxis("p" + playerID + "_x");
-        float y = Input.GetAxis("p" + playerID + "_y");
+        float x = Input.GetAxis("p" + (playerID + 1) + "_x");
+        float y = Input.GetAxis("p" + (playerID + 1) + "_y");
 
         foreach(Thruster item in basicThrusters) {
             item.StopThrust();
