@@ -16,12 +16,15 @@ public class Component : MonoBehaviour, iControll {
     public GameObject shipPrefab;
     public Ship Ship;
     public GameObject[] attatchmentPrefabs;
-    public List<GameObject> attatchments;
+    public List<GameObject> attachments;
 
     private Thruster[] basicThrusters;
 
-    iAttatch attatch = null;
-    GameObject preAttatch = null;
+    // hinge is used to attach stuff
+    private HingeJoint2D hinge;
+
+    iAttatch attach = null;
+    GameObject preAttach = null;
 
     public int playerID = 0;
 
@@ -34,26 +37,34 @@ public class Component : MonoBehaviour, iControll {
         rb.drag = drag; // do this in update for real time tests
         rb.angularDrag = drag;
 
+        hinge = GetComponent<HingeJoint2D>();
+
         basicThrusters = GetComponentsInChildren<Thruster>();
 
-        attatchments = new List<GameObject>();
+        attachments = new List<GameObject>();
         foreach (GameObject item in attatchmentPrefabs) {
             if (item.GetComponent<iAttatch>() != null) {
                 GameObject newGO = (GameObject)Instantiate(item, Vector3.zero, Quaternion.identity);
-                attatchments.Add(newGO);
+                attachments.Add(newGO);
                 newGO.transform.parent = this.transform;
                 newGO.SetActive(false);
             } 
         }
 
-        preAttatch = attatchments[0];
-        preAttatch.SetActive(true);
+        preAttach = attachments[0];
+        preAttach.SetActive(true);
+
+        // add hinge
+        hinge = gameObject.AddComponent<HingeJoint2D>();
+        // set default attachment
+        hinge.connectedBody = attachments[0].GetComponent<Rigidbody2D>();
+
 
         //attatch = GetComponentInChildren<iAttatch>();
     }
 
     void Update() {
-        if (attatch == null) {
+        if (attach == null) {
             // used for phase 1
             Move();
             SwitchAttach();
@@ -112,26 +123,28 @@ public class Component : MonoBehaviour, iControll {
         }
 
         if (Input.GetButtonUp("p" + playerID + "_action")) {
-            preAttatch.SetActive(false);
-            preAttatch = attatchments[++currentAtt % attatchments.Count];
-            print(currentAtt);
-            preAttatch.SetActive(true);
-            // TODO fix attatchment on hinge joint
+            preAttach.SetActive(false);
+            preAttach = attachments[++currentAtt % attachments.Count];
+            preAttach.SetActive(true);
+
+            hinge.connectedBody = preAttach.GetComponent<Rigidbody2D>();
+
+            preAttach.transform.localPosition = Vector2.zero;
         }
     }
 
     public void Action() {
         if (Input.GetAxis("p" + playerID + "_action") != 0) {
-            attatch.StartAction();
+            attach.StartAction();
         }
         else {
-            attatch.StopAction();
+            attach.StopAction();
         }
     }
 
     public void Rotate() {
         float x = Input.GetAxis("p" + playerID + "_x");
 
-        attatch.Rotate(x);
+        attach.Rotate(x);
     }
 }

@@ -42,6 +42,4 @@ public class Ship : MonoBehaviour {
         components.Add(component);
         component.Ship = this;
     }
-
-
 }
