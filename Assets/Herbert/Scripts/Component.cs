@@ -13,7 +13,7 @@ public class Component : MonoBehaviour, iControll {
     private float maxDrag = 5.0f;
     // --------------------------------
 
-
+    public GameObject shipPrefab;
     public Ship Ship;
     public GameObject[] attatchmentPrefabs;
     public List<GameObject> attatchments;
@@ -39,7 +39,7 @@ public class Component : MonoBehaviour, iControll {
         attatchments = new List<GameObject>();
         foreach (GameObject item in attatchmentPrefabs) {
             if (item.GetComponent<iAttatch>() != null) {
-                GameObject newGO =Instantiate(item);
+                GameObject newGO = (GameObject)Instantiate(item, Vector3.zero, Quaternion.identity);
                 attatchments.Add(newGO);
                 newGO.transform.parent = this.transform;
                 newGO.SetActive(false);
@@ -63,6 +63,23 @@ public class Component : MonoBehaviour, iControll {
             Action();
             Rotate();
         }
+    }
+
+    public void AddToShip(Component otherComponent) {
+        if (Ship != null)
+            return;
+
+        if (otherComponent.Ship != null) { // ohter has a ship
+            this.Ship = otherComponent.Ship;
+        }
+        else {
+            GameObject newShipGO = Instantiate(shipPrefab);
+            newShipGO.transform.position = this.transform.position;
+            Ship newShip = newShipGO.GetComponent<Ship>();
+            this.Ship = newShip;
+        }
+
+        Ship.AddComponent(this);
     }
 
     // movement for phase
