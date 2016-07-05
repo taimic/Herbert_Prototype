@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Thruster : MonoBehaviour {
 
-    public KeyCode key;
     private Component ship;
 
     private Rigidbody2D body;
