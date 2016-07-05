@@ -11,7 +11,7 @@ public class Component : MonoBehaviour, iControll {
     public float drag;
     private float maxDrag = 5.0f;
     // --------------------------------
-    
+    public Ship ship;
     private Thruster[] basicThrusters;
 
     iAttatch attatch = null;
@@ -21,6 +21,19 @@ public class Component : MonoBehaviour, iControll {
 
     private float maxHealts = 10;
     private float health = 0;
+
+    public Ship Ship
+    {
+        get
+        {
+            return ship;
+        }
+
+        set
+        {
+            ship = value;
+        }
+    }
 
     void Start() {
         health = maxHealts;
