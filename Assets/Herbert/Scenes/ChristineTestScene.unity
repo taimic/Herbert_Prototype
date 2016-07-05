@@ -234,6 +234,7 @@ GameObject:
   - 23: {fileID: 1250321116}
   - 58: {fileID: 1250321115}
   - 50: {fileID: 1250321114}
+  - 247: {fileID: 1250321119}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -318,6 +319,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!247 &1250321119
+ConstantForce2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1250321113}
+  m_Enabled: 1
+  m_Force: {x: 0, y: -9.8}
+  m_RelativeForce: {x: 0, y: 0}
+  m_Torque: 0
 --- !u!1001 &2076075869
 Prefab:
   m_ObjectHideFlags: 0

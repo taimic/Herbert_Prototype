@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class Tower : MonoBehaviour
 {
-	private Attach attach = null;
+	private iAttatch attatch = null;
 
 	private int Energy = 100;
 	private bool active = false;
@@ -13,18 +13,62 @@ public class Tower : MonoBehaviour
     /** list of targets within the trigger */
     private List<GameObject> targetList;
 
-    Attach laser;
-
 
 	void Start()
     {
         targetList = new List<GameObject>();
 
 
-        laser = gameObject.AddComponent<Laser>();
+        //attatch = gameObject.AddComponent<Laser>();
     }
 
-    void Update()
+	public void Activate() { active = true; }
+
+	void OnTriggerEnter2D(Collider2D other)
+    {
+        if (active)
+        {
+            // if (other.gameObject.CompareTag("Ship"))
+            if (!other.gameObject.CompareTag("Tower"))
+            {
+                //Debug.Log(other.gameObject + " entered the trigger");
+
+
+                targetList.Add(other.gameObject);
+                //Debug.Log(targets.Count + " targets are in the list");
+
+                
+            }
+        }        
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        // if (other.gameObject.CompareTag("Ship"))
+        if (!other.gameObject.CompareTag("Tower"))
+        {
+            //Debug.Log(other.gameObject + " is within the trigger");
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (active)
+        {
+            // if (other.gameObject.CompareTag("Ship"))
+            if (!other.gameObject.CompareTag("Tower"))
+            {
+                
+                targetList.Remove(other.gameObject);
+                //Debug.Log(other.gameObject + " left the trigger");
+                //Debug.Log(targets.Count + " targets are in the list");
+                
+            }
+        }
+        
+    }
+
+    public void Update()
     {
         if (active && targetList.Count > 0)
         {
@@ -41,52 +85,13 @@ public class Tower : MonoBehaviour
                     }
                 }
             }
-            Fire(target);
+            // TODO Target an attatch weitergeben
+            attatch.StartAction();
         }
-
-    }
-
-    private void Fire(GameObject target)
-    {
         // TODO
-        
-        laser.Action();
-    }
-
-
-	public void Activate() { active = true; }
-
-	void OnTriggerEnter2D(Collider2D other)
-    {
-        // if (other.gameObject.CompareTag("Ship"))
-        if (!other.gameObject.CompareTag("Tower"))
+        if (targetList.Count == 0)
         {
-            //Debug.Log(other.gameObject + " entered the trigger");
-
-            
-            targetList.Add(other.gameObject);
-            //Debug.Log(targets.Count + " targets are in the list");
-        }
-    }
-
-    void OnTriggerStay2D(Collider2D other)
-    {
-        // if (other.gameObject.CompareTag("Ship"))
-        if (!other.gameObject.CompareTag("Tower"))
-        {
-            //Debug.Log(other.gameObject + " is within the trigger");
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        // if (other.gameObject.CompareTag("Ship"))
-        if (!other.gameObject.CompareTag("Tower"))
-        {
-            //Debug.Log(other.gameObject + " left the trigger");
-
-            targetList.Remove(other.gameObject);
-            //Debug.Log(targets.Count + " targets are in the list");
+            attatch.StopAction();
         }
     }
 
