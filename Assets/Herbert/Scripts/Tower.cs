@@ -10,24 +10,47 @@ public class Tower : MonoBehaviour
 	private int Energy = 100;
 	private bool active = false;
 
-    private List<GameObject> targets; 
+    /** list of targets within the trigger */
+    private List<GameObject> targetList;
+
+    Attach laser;
 
 
 	void Start()
     {
-        targets = new List<GameObject>();
+        targetList = new List<GameObject>();
 
 
-        gameObject.AddComponent<Laser>();
+        laser = gameObject.AddComponent<Laser>();
     }
 
     void Update()
     {
-        if (targets.Count > 0)
+        if (active && targetList.Count > 0)
         {
-            // TODO
+            GameObject target = targetList[0];
+
+            if (targetList.Count > 1)
+            {
+                float distance = Vector3.Distance(target.transform.position, transform.position);
+                foreach (GameObject t in targetList)
+                {
+                    if (Vector3.Distance(t.transform.position, transform.position) < distance)
+                    {
+                        target = t;
+                    }
+                }
+            }
+            Fire(target);
         }
 
+    }
+
+    private void Fire(GameObject target)
+    {
+        // TODO
+        
+        laser.Action();
     }
 
 
@@ -38,9 +61,11 @@ public class Tower : MonoBehaviour
         // if (other.gameObject.CompareTag("Ship"))
         if (!other.gameObject.CompareTag("Tower"))
         {
-            Debug.Log(other.gameObject + " entered the trigger");
+            //Debug.Log(other.gameObject + " entered the trigger");
 
-            //TODO add targets
+            
+            targetList.Add(other.gameObject);
+            //Debug.Log(targets.Count + " targets are in the list");
         }
     }
 
@@ -49,7 +74,7 @@ public class Tower : MonoBehaviour
         // if (other.gameObject.CompareTag("Ship"))
         if (!other.gameObject.CompareTag("Tower"))
         {
-            Debug.Log(other.gameObject + " is within the trigger");
+            //Debug.Log(other.gameObject + " is within the trigger");
         }
     }
 
@@ -58,9 +83,10 @@ public class Tower : MonoBehaviour
         // if (other.gameObject.CompareTag("Ship"))
         if (!other.gameObject.CompareTag("Tower"))
         {
-            Debug.Log(other.gameObject + " left the trigger");
+            //Debug.Log(other.gameObject + " left the trigger");
 
-            //TODO delete targets
+            targetList.Remove(other.gameObject);
+            //Debug.Log(targets.Count + " targets are in the list");
         }
     }
 
