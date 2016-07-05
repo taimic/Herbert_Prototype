@@ -16,7 +16,7 @@ public class AttatchThruster : MonoBehaviour, iAttatch {
     }
 
     public void StartAction() {
-        body.AddForce(transform.rotation * Vector3.up * 10);
+        body.AddForce(transform.rotation * Vector3.up * 5);
         afterBurner.SetActive(true);
     }
 
@@ -25,6 +25,6 @@ public class AttatchThruster : MonoBehaviour, iAttatch {
     }
 
     public void Rotate(float a) {
-        body.AddTorque(a * Time.deltaTime * 100);
+        body.AddTorque(a * Time.deltaTime * 400);
     }
 }
