@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class Tower : MonoBehaviour
 {
-	private iAttatch attatch = null;
+	private Laser laser = null;
 
 	private int Energy = 100;
 	private bool active = false;
@@ -18,8 +18,7 @@ public class Tower : MonoBehaviour
     {
         targetList = new List<GameObject>();
 
-
-        //attatch = gameObject.AddComponent<Laser>();
+        laser = new Laser();
     }
 
 	public void Activate() { active = true; }
@@ -31,13 +30,9 @@ public class Tower : MonoBehaviour
             // if (other.gameObject.CompareTag("Ship"))
             if (!other.gameObject.CompareTag("Tower"))
             {
-                //Debug.Log(other.gameObject + " entered the trigger");
-
-
                 targetList.Add(other.gameObject);
+                //Debug.Log(other.gameObject + " entered the trigger");
                 //Debug.Log(targets.Count + " targets are in the list");
-
-                
             }
         }        
     }
@@ -58,7 +53,6 @@ public class Tower : MonoBehaviour
             // if (other.gameObject.CompareTag("Ship"))
             if (!other.gameObject.CompareTag("Tower"))
             {
-                
                 targetList.Remove(other.gameObject);
                 //Debug.Log(other.gameObject + " left the trigger");
                 //Debug.Log(targets.Count + " targets are in the list");
@@ -72,29 +66,35 @@ public class Tower : MonoBehaviour
     {
         if (active && targetList.Count > 0)
         {
-            GameObject target = targetList[0];
-
-            if (targetList.Count > 1)
+            laser.Target = (targetList.Count > 1) ? FindTarget() : targetList[0];
+            
+            if (laser.IsShooting)
             {
-                float distance = Vector3.Distance(target.transform.position, transform.position);
-                foreach (GameObject t in targetList)
-                {
-                    if (Vector3.Distance(t.transform.position, transform.position) < distance)
-                    {
-                        target = t;
-                    }
-                }
+                laser.StartAction();
             }
-            // TODO Target an attatch weitergeben
-            attatch.StartAction();
-        }
-        // TODO
-        if (targetList.Count == 0)
+            
+        } else
         {
-            attatch.StopAction();
+            if (laser.IsShooting)
+            {
+                laser.StopAction();
+            }
         }
     }
 
+    private GameObject FindTarget()
+    {
+        GameObject target = targetList[0];
+        float distance = Vector3.Distance(target.transform.position, transform.position);
+        foreach (GameObject t in targetList)
+        {
+            if (Vector3.Distance(t.transform.position, transform.position) < distance)
+            {
+                target = t;
+            }
+        }
+        return target;
+    }
 
 
 }

@@ -4,33 +4,19 @@ using System;
 
 public class Laser : iAttatch
 {
-    private bool shooting;
+    private bool isShooting;
+    public bool IsShooting
+    {
+        get { return isShooting;  }
+        set { isShooting = value; }
+    }
 
     private GameObject target;
 
     public GameObject Target
     {
-        get
-        {
-            return target;
-        }
-
-        set
-        {
-            target = value;
-        }
-    }
-
-    public void Action()
-    {
-        if (Target != null)
-        {
-
-        }
-        else
-        {
-            Debug.Log("Laser: Target has not been set.");
-        }
+        get { return target;  }
+        set { target = value; }
     }
 
     public void Rotate(float a)
@@ -40,19 +26,19 @@ public class Laser : iAttatch
 
     public void StartAction()
     {
-        shooting = true;
+        isShooting = true;
     }
 
     public void StopAction()
     {
-        shooting = false;
+        isShooting = false;
     }
 
     public void Update()
     {
-        if (shooting)
+        if (IsShooting && target != null)
         {
-            //TODO
+            //TODO shoot
         }
     }
 }
