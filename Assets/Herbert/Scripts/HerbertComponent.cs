@@ -75,7 +75,7 @@ public class HerbertComponent : MonoBehaviour {
 
 						Vector2 direction = (goal - (Vector2)transform.position).normalized;
 					
-						Debug.Log ( direction );
+						//Debug.Log ( direction );
 
 						rigid.AddForce (direction .normalized * GetForce (distance), ForceMode2D.Force);
 					}
