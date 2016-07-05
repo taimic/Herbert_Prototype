@@ -8,11 +8,24 @@ public class Ship : MonoBehaviour {
     List<PowerUp> powerUps;
     bool hasObjective;
 
-	// Use this for initialization
-	void Start () {
+    public bool HasObjective
+    {
+        get
+        {
+            return hasObjective;
+        }
+
+        set
+        {
+            hasObjective = value;
+        }
+    }
+
+    // Use this for initialization
+    void Start () {
         components = new List<Component>();
         powerUps = new List<PowerUp>();
-        hasObjective = false;
+        HasObjective = false;
 
 	}
 	
