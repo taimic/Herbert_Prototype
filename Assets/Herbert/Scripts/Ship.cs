@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Ship : MonoBehaviour {
-
+    [SerializeField]
     List<Component> components;
     List<PowerUp> powerUps;
     bool hasObjective;
