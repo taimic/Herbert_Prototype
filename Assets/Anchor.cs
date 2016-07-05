@@ -24,6 +24,6 @@ public class Anchor : MonoBehaviour {
         if (otherAnchor == null)
             return;
 
-        component.AddToShip(otherAnchor.Component);
+        component.AddToShip(otherAnchor.Component, transform.localPosition);
 	}
 }

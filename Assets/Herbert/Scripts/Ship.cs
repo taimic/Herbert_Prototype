@@ -23,23 +23,38 @@ public class Ship : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        components = new List<Component>();
         powerUps = new List<PowerUp>();
         HasObjective = false;
+	}
 
+    void Update () {
+        CheckIfShipReady();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    // TODO: do this when ship is ready to go (phase 2)
+    bool shipReady = false;
+    private void CheckIfShipReady() {
+        if (shipReady)
+            return;
+
+        if (components.Count >= 2) { // if ship has min 3 components
+            foreach (Component item in components) {
+                if (item.Attachment != null) // check if all has allready chosen their attachment
+                    item.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None; // set body constraints to none (allow rotation)
+            }
+        }
+    }
 
     public void AddComponent(Component component)
     {
         Rigidbody2D rb = component.GetComponent<Rigidbody2D>();
         FixedJoint2D newJoint =  gameObject.AddComponent<FixedJoint2D>();
         newJoint.connectedBody = rb;
+        if (components == null)
+            components = new List<Component>();
+
         components.Add(component);
         component.Ship = this;
+        //print("woop " + component.GetInstanceID() + " #:" + components.Count);
     }
 }

@@ -84,7 +84,7 @@ GameObject:
   - 58: {fileID: 5856896}
   - 114: {fileID: 11428446}
   m_Layer: 10
-  m_Name: Anchor (1)
+  m_Name: Anchor_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,7 +101,7 @@ GameObject:
   - 58: {fileID: 5837658}
   - 114: {fileID: 11442612}
   m_Layer: 10
-  m_Name: Anchor
+  m_Name: Anchor_top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,7 +179,7 @@ GameObject:
   - 58: {fileID: 5884500}
   - 114: {fileID: 11446928}
   m_Layer: 10
-  m_Name: Anchor (3)
+  m_Name: Anchor_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -253,7 +253,7 @@ GameObject:
   - 58: {fileID: 5809630}
   - 114: {fileID: 11438180}
   m_Layer: 10
-  m_Name: Anchor (2)
+  m_Name: Anchor_bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -566,7 +566,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.1
 --- !u!58 &5837658
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -580,7 +580,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.1
 --- !u!58 &5856896
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -594,7 +594,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.1
 --- !u!58 &5884500
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -608,7 +608,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.1
 --- !u!61 &6104488
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -974,7 +974,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   radius: 3
-  force: 1
+  force: 3
   isDocked: 0
 --- !u!114 &11426024
 MonoBehaviour:
@@ -1116,11 +1116,9 @@ MonoBehaviour:
   thrusterPower: 10
   drag: 0.1
   shipPrefab: {fileID: 111908, guid: c988c0807a7fe884eb95a634bb6b315f, type: 2}
-  Ship: {fileID: 0}
-  attatchmentPrefabs:
+  attachmentPrefabs:
   - {fileID: 104668, guid: a7ae1d661b0e6c54684dc81171f085c6, type: 2}
   - {fileID: 130650, guid: 33f415aba8c737a41b639ff75bf1f0a2, type: 2}
-  attachments: []
   playerID: 1
 --- !u!135 &13527408
 SphereCollider:
@@ -1224,7 +1222,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     startLifetime:
-      scalar: 0.3
+      scalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1388,7 +1386,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: 1.4
+      scalar: 0.7
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1399,7 +1397,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -1410,7 +1408,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minMaxState: 3
     startRotationX:
       scalar: 1
@@ -2708,7 +2706,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     startLifetime:
-      scalar: 0.3
+      scalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2872,7 +2870,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: 1.4
+      scalar: 0.7
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2883,7 +2881,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -2894,7 +2892,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minMaxState: 3
     startRotationX:
       scalar: 1
@@ -4192,7 +4190,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     startLifetime:
-      scalar: 0.3
+      scalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4356,7 +4354,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: 1.4
+      scalar: 0.7
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4367,7 +4365,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -4378,7 +4376,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minMaxState: 3
     startRotationX:
       scalar: 1
@@ -5676,7 +5674,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     startLifetime:
-      scalar: 0.3
+      scalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5840,7 +5838,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: 1.4
+      scalar: 0.7
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5851,7 +5849,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -5862,7 +5860,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minMaxState: 3
     startRotationX:
       scalar: 1

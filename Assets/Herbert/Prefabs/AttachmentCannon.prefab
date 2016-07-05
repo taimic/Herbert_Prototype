@@ -27,12 +27,27 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 415468}
-  - 212: {fileID: 21279840}
   - 114: {fileID: 11488304}
   - 50: {fileID: 5048256}
   - 82: {fileID: 8252410}
   m_Layer: 0
-  m_Name: Cannon
+  m_Name: AttachmentCannon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &147612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 459864}
+  - 212: {fileID: 21284198}
+  m_Layer: 0
+  m_Name: Graphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,12 +72,25 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.49999997, y: 1, z: 1}
+  m_LocalPosition: {x: 1.73, y: 0, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.5, z: 1}
   m_Children:
   - {fileID: 400954}
+  - {fileID: 459864}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!4 &459864
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147612}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 415468}
+  m_RootOrder: 1
 --- !u!50 &5048256
 Rigidbody2D:
   serializedVersion: 2
@@ -1717,12 +1745,12 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
---- !u!212 &21279840
+--- !u!212 &21284198
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 130650}
+  m_GameObject: {fileID: 147612}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -1742,9 +1770,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: ffa126bfaf0ac3f4a8643ebe52371926, type: 3}
-  m_Color: {r: 0.399, g: 0.0025094557, b: 0.0025094557, a: 1}
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 21300000, guid: 8b7403b584f178744a16df7e26c8bc82, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1001 &100100000
