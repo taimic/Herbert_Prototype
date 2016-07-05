@@ -25,9 +25,9 @@ public class Ship : MonoBehaviour {
     {
         Rigidbody2D rb = component.GetComponent<Rigidbody2D>();
         FixedJoint2D newJoint =  gameObject.AddComponent<FixedJoint2D>();
-        newJoint.autoConfigureConnectedAnchor = false;
         newJoint.connectedBody = rb;
         components.Add(component);
+        component.Ship = this;
     }
 
 

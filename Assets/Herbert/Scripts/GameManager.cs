@@ -13,14 +13,12 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        JoinPlayers();
-	}
 
+	}
 
     private void JoinPlayers() {
         // join players
-        if (Input.GetButtonDown("Join")) {
-            print("J " + Input.GetJoystickNames()[0]);
+        if (Input.GetAxis("Join") != 0) {
             GameObject go = Instantiate(baseComponentPrefab);
             go.GetComponent<Component>().playerID = playerID++;
         }
