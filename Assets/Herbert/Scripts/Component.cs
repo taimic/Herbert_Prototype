@@ -11,7 +11,8 @@ public class Component : MonoBehaviour, iControll {
     public float drag;
     private float maxDrag = 5.0f;
     // --------------------------------
-    public Ship ship;
+    [SerializeField]
+    private Ship ship;
     private Thruster[] basicThrusters;
 
     iAttatch attatch = null;
