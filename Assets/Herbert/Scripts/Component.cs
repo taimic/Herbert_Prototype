@@ -13,6 +13,8 @@ public class Component : MonoBehaviour, iControll {
     private float maxDrag = 5.0f;
     // --------------------------------
 
+
+    public Ship Ship;
     public GameObject[] attatchmentPrefabs;
     public List<GameObject> attatchments;
 
@@ -88,13 +90,13 @@ public class Component : MonoBehaviour, iControll {
     private int currentAtt = 0;
     public void SwitchAttach() {
 
-        if (Input.GetButton("p" + playerID + "_action")) { // hold for lock attatchment
+        if (Input.GetButton("p" + playerID + "_action")) { // hold for lock attatchment (~3sec)
 
         }
 
         if (Input.GetButtonUp("p" + playerID + "_action")) {
             preAttatch.SetActive(false);
-            preAttatch = attatchments[currentAtt++ % attatchments.Count];
+            preAttatch = attatchments[++currentAtt % attatchments.Count];
             print(currentAtt);
             preAttatch.SetActive(true);
             // TODO fix attatchment on hinge joint

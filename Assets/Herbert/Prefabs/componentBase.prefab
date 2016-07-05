@@ -860,8 +860,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrusterPower: 10
   drag: 0.1
+  Ship: {fileID: 0}
   attatchmentPrefabs:
-  - {fileID: 139634, guid: 73ebd3441e9342a488d937bf49931c9e, type: 2}
+  - {fileID: 104668, guid: a7ae1d661b0e6c54684dc81171f085c6, type: 2}
   - {fileID: 130650, guid: 33f415aba8c737a41b639ff75bf1f0a2, type: 2}
   attatchments: []
   playerID: 1
