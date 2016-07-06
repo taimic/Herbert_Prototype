@@ -2,8 +2,13 @@
 using System.Collections;
 using System;
 
-public class Laser : iAttach
+public class Laser : MonoBehaviour, iAttach
 {
+    private float speed = 5f;
+
+    public GameObject bullet;
+
+
     private bool isShooting;
     public bool IsShooting
     {
@@ -21,7 +26,8 @@ public class Laser : iAttach
 
     public void Rotate(float a)
     {
-        throw new NotImplementedException();
+        //TODO Rotate();
+        
     }
 
     public void StartAction()
@@ -36,9 +42,18 @@ public class Laser : iAttach
 
     public void Update()
     {
-        if (IsShooting && target != null)
+        if (target != null)
         {
-            //TODO shoot
+            Vector3 vectorToTarget = target.transform.position - transform.position;
+            float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, q, Time.deltaTime * speed);
+            
+            if (IsShooting)
+            {
+                //TODO shoot 
+                // shoot in direction of transform.rotation. 
+            }
         }
     }
 }

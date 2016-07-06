@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class Tower : MonoBehaviour
 {
-	private Laser laser = null;
+	public Laser laser;
 
 	private int Energy = 100;
 	private bool active = false;
@@ -17,8 +17,7 @@ public class Tower : MonoBehaviour
 	void Start()
     {
         targetList = new List<GameObject>();
-
-        laser = new Laser();
+        Activate();       
     }
 
 	public void Activate() { active = true; }
@@ -32,7 +31,7 @@ public class Tower : MonoBehaviour
             {
                 targetList.Add(other.gameObject);
                 //Debug.Log(other.gameObject + " entered the trigger");
-                //Debug.Log(targets.Count + " targets are in the list");
+                //Debug.Log(targetList.Count + " targets are in the list");
             }
         }        
     }
@@ -55,7 +54,7 @@ public class Tower : MonoBehaviour
             {
                 targetList.Remove(other.gameObject);
                 //Debug.Log(other.gameObject + " left the trigger");
-                //Debug.Log(targets.Count + " targets are in the list");
+                //Debug.Log(targetList.Count + " targets are in the list");
             }
         }
         
