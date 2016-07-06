@@ -25,6 +25,7 @@ public class AttatchCannon : MonoBehaviour, iAttach {
 
         Instantiate(bulletPrefab, graphicTransform.position, graphicTransform.rotation);
         StartCoroutine(CannonCooldown());
+        audio.Play();
     }
 
     IEnumerator CannonCooldown() {

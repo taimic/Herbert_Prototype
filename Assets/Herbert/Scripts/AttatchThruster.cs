@@ -18,10 +18,14 @@ public class AttatchThruster : MonoBehaviour, iAttach {
     public void StartAction() {
         body.AddForce(transform.rotation * Vector3.up * 5);
         afterBurner.SetActive(true);
+        if (!audio.isPlaying) {
+            audio.Play();
+        }
     }
 
     public void StopAction() {
         afterBurner.SetActive(false);
+        audio.Stop();
     }
 
     public void Rotate(float a) {
