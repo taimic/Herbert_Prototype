@@ -128,42 +128,6 @@ Prefab:
       propertyPath: m_Name
       value: component3
       objectReference: {fileID: 0}
-    - target: {fileID: 11404268, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: key
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11426024, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: key
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11479560, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: key
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11404252, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: key
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 23368130, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: m_ConnectedAnchor.x
-      value: -3.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 23368130, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: m_ConnectedAnchor.y
-      value: -0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 11415614, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: radius
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11415614, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: force
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11492604, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: playerID
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: db2277b929401cb4d9830838669f8691, type: 2}
   m_IsPrefabParent: 0
@@ -363,46 +327,6 @@ Prefab:
       propertyPath: m_Name
       value: component2
       objectReference: {fileID: 0}
-    - target: {fileID: 11404268, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: key
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11426024, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: key
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11479560, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: key
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11404252, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: key
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 25565302, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: m_ConnectedAnchor.x
-      value: 0.0000003258413
-      objectReference: {fileID: 0}
-    - target: {fileID: 25565302, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: m_ConnectedAnchor.y
-      value: 0.9999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 23368130, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: m_ConnectedAnchor.x
-      value: 3.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 11415614, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: radius
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11415614, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: force
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11492604, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: playerID
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: db2277b929401cb4d9830838669f8691, type: 2}
   m_IsPrefabParent: 0
@@ -452,14 +376,6 @@ Prefab:
     - target: {fileID: 137036, guid: db2277b929401cb4d9830838669f8691, type: 2}
       propertyPath: m_Name
       value: component1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11415614, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: radius
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11415614, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: force
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: db2277b929401cb4d9830838669f8691, type: 2}
@@ -625,38 +541,6 @@ Prefab:
     - target: {fileID: 137036, guid: db2277b929401cb4d9830838669f8691, type: 2}
       propertyPath: m_Name
       value: component4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11479560, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: key
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11404252, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: key
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11404268, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: key
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11426024, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: key
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 23368130, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: m_ConnectedAnchor.y
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11415614, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: radius
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11415614, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: force
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11492604, guid: db2277b929401cb4d9830838669f8691, type: 2}
-      propertyPath: playerID
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: db2277b929401cb4d9830838669f8691, type: 2}
