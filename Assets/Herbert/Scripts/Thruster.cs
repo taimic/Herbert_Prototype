@@ -23,10 +23,14 @@ public class Thruster : MonoBehaviour {
     public void Thrust() {
         body.AddForce(transform.rotation * Vector3.up * ship.thrusterPower);
         isThrusting = true;
+
+        if (!audio.isPlaying)
+            audio.Play();
     }
 
     public void StopThrust() {
         isThrusting = false;
+        audio.Stop();
     }
 
     // Update is called once per frame

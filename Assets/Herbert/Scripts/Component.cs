@@ -137,20 +137,31 @@ public class Component : MonoBehaviour, iControll {
         float x = Input.GetAxis("p" + playerID + "_x");
         float y = Input.GetAxis("p" + playerID + "_y");
 
-        foreach (Thruster item in basicThrusters) {
-            item.StopThrust();
-        }
+        //foreach (Thruster item in basicThrusters) {
+        //    item.StopThrust();
+        //}
         if (x > 0) {
             basicThrusters[0].Thrust();
+            basicThrusters[1].StopThrust();
         }
         else if (x < 0) {
             basicThrusters[1].Thrust();
+            basicThrusters[0].StopThrust();
+        } else {
+            basicThrusters[0].StopThrust();
+            basicThrusters[1].StopThrust();
         }
+
         if (y > 0) {
             basicThrusters[2].Thrust();
+            basicThrusters[3].StopThrust();
         }
         else if (y < 0) {
             basicThrusters[3].Thrust();
+            basicThrusters[2].StopThrust();
+        } else {
+            basicThrusters[2].StopThrust();
+            basicThrusters[3].StopThrust();
         }
     }
 
