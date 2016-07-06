@@ -3,15 +3,13 @@ using System.Collections;
 
 public class Bullet : MonoBehaviour {
     public float speed;
+    public float maxLifetime = 10;
 	// Use this for initialization
 	void Start () {
-        GetComponent<Rigidbody2D>().AddForce(Vector2.up * speed, ForceMode2D.Impulse);
+        GetComponent<Rigidbody2D>().AddForce(transform.up * speed, ForceMode2D.Impulse);
+        Destroy(this.gameObject, maxLifetime);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 
     void OnTriggerEnter2D(Collider2D other) {
         // hit by bullet or ohter stuff

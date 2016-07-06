@@ -18,11 +18,11 @@ public class GameManager : MonoBehaviour {
 
     private void JoinPlayers() {
         // join players
-        //if (Input.GetButtonDown("Join")) {
-        //    //foreach(string item in Input.GetJoystickNames())
-        //    //    print("JOIN " + item);
-        //    GameObject go = Instantiate(baseComponentPrefab);
-        //    go.GetComponent<Component>().playerID = playerID++;
-        //}
+        if (Input.GetButtonDown("Join")) {
+            //foreach(string item in Input.GetJoystickNames())
+            //    print("JOIN " + item);
+            GameObject go = Instantiate(baseComponentPrefab);
+            go.GetComponent<Component>().playerID = playerID++;
+        }
     }
 }
