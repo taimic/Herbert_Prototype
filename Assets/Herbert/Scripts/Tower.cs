@@ -102,11 +102,14 @@ public class Tower : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        // hit by bullet or ohter stuff
-        health -= 1;
+        if (coll.gameObject.CompareTag("BulletPlayer"))
+        {
+            // hit by bullet or ohter stuff
+            health -= 1;
 
-        if (health <= 0)
-            DestroyComp();
+            if (health <= 0)
+                DestroyComp();
+        }
     }
 
 

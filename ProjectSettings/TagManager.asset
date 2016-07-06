@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tower
   - Fire
+  - BulletPlayer
   layers:
   - Default
   - TransparentFX
