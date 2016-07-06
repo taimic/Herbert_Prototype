@@ -230,10 +230,18 @@ public class Component : MonoBehaviour, iControll {
     private void DestroyComp() {
         componentDestroyed = true;
         baseGraphic.color = Color.grey;
+        if(attachment != null)
+        {
+            attachment.StopAction();
+        }
+        foreach(Thruster thruster in basicThrusters)
+        {
+            thruster.StopThrust();
+        }
     }
 
-    void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.layer.ToString() != "Bullet")
+    void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.layer != LayerMask.NameToLayer("BulletEnemy"))
             return;
         // hit by bullet or ohter stuff
         health -= 1;

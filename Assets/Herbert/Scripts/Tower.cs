@@ -98,6 +98,8 @@ public class Tower : MonoBehaviour
     {
         componentDestroyed = true;
         baseGraphic.color = Color.grey;
+        active = false;
+        laser.StopAction();
     }
 
     void OnCollisionEnter2D(Collision2D coll)
