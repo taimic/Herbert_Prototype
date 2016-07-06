@@ -16,7 +16,6 @@ public class Component : MonoBehaviour, iControll {
     private float confirmationTime = 3;
     private float currentConfirmationTime = 0;
 
-
     public GameObject shipPrefab;
     private Ship ship;
     public Ship Ship {
@@ -27,6 +26,7 @@ public class Component : MonoBehaviour, iControll {
             ship = value;
         }
     }
+    private SpriteRenderer baseGraphic;
 
     public GameObject[] attachmentPrefabs;
     private List<GameObject> attachments;
@@ -52,6 +52,7 @@ public class Component : MonoBehaviour, iControll {
 
     void Start() {
         health = maxHealts;
+        baseGraphic = GetComponentInChildren<SpriteRenderer>();
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.drag = drag; // do this in update for real time tests
         rb.angularDrag = drag;
@@ -142,6 +143,7 @@ public class Component : MonoBehaviour, iControll {
             else {
                 // set attachment
                 attachment = preAttach.GetComponent<iAttach>();
+                baseGraphic.color = Color.white;
                 // deactivate all basic thrusters
                 foreach (Thruster item in basicThrusters) {
                     item.StopThrust();
