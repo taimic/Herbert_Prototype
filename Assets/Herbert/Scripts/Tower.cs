@@ -25,13 +25,9 @@ public class Tower : MonoBehaviour
     {
         if (active)
         {
-            // if (other.gameObject.CompareTag("Ship"))
-            if (!other.gameObject.CompareTag("Tower"))
-            {
-                targetList.Add(other.gameObject);
-                //Debug.Log(other.gameObject + " entered the trigger");
-                //Debug.Log(targetList.Count + " targets are in the list");
-            }
+            targetList.Add(other.gameObject);
+            //Debug.Log(other.gameObject + " entered the trigger");
+            //Debug.Log(targetList.Count + " targets are in the list");
         }        
     }
     
@@ -40,13 +36,9 @@ public class Tower : MonoBehaviour
     {
         if (active)
         {
-            // if (other.gameObject.CompareTag("Ship"))
-            if (!other.gameObject.CompareTag("Tower"))
-            {
-                targetList.Remove(other.gameObject);
-                //Debug.Log(other.gameObject + " left the trigger");
-                //Debug.Log(targetList.Count + " targets are in the list");
-            }
+            targetList.Remove(other.gameObject);
+            //Debug.Log(other.gameObject + " left the trigger");
+            //Debug.Log(targetList.Count + " targets are in the list");
         }
         
     }
@@ -59,7 +51,7 @@ public class Tower : MonoBehaviour
             
             if (!laser.IsShooting)
             {
-                Debug.Log(laser.Target.name + " is set as target.");
+                Debug.Log(laser.Target.name + " is set as target of "+gameObject.name);
                 laser.StartAction();
             }
             

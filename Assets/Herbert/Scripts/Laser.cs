@@ -29,8 +29,7 @@ public class Laser : MonoBehaviour, iAttach
 
     public void Rotate(float a)
     {
-        //TODO Rotate();
-        
+        // Rotation happens in Update        
     }
 
     public void StartAction()
