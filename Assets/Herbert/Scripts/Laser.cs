@@ -47,13 +47,6 @@ public class Laser : MonoBehaviour, iAttach
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.localRotation = Quaternion.Slerp(transform.localRotation, q, Time.deltaTime * speed);
             
-
-            //Vector3 targetDir = target.transform.position - transform.position;
-            //float step = speed * Time.deltaTime;
-            //Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
-            //Debug.DrawRay(transform.position, newDir, Color.red);
-            //transform.rotation = Quaternion.LookRotation(newDir);
-
             if (IsShooting)
             {
                 //TODO shoot 
