@@ -19,6 +19,8 @@ public class Component : MonoBehaviour, iControll {
     private float confirmationTime = 3;
     private float currentConfirmationTime = 0;
 
+    private AudioSource audio;
+
     public GameObject shipPrefab;
     private Ship ship;
     public Ship Ship {
@@ -70,6 +72,8 @@ public class Component : MonoBehaviour, iControll {
         hinge = GetComponent<HingeJoint2D>();
 
         basicThrusters = GetComponentsInChildren<Thruster>();
+
+        audio = GetComponent<AudioSource>();
 
         attachments = new List<GameObject>();
         foreach (GameObject item in attachmentPrefabs) {
@@ -123,6 +127,7 @@ public class Component : MonoBehaviour, iControll {
         }
         ship.AddComponent(this);
 
+        audio.Play();
         GetComponent<HerbertComponent>().isDocked = true;
     }
 
