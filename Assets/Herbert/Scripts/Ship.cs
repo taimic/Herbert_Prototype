@@ -31,7 +31,7 @@ public class Ship : MonoBehaviour {
 	}
 
     void Update () {
-        Camera.main.transform.position = transform.position;
+        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z);
         CheckIfShipReady();
 	}
 
