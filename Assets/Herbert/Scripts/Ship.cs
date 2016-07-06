@@ -27,6 +27,8 @@ public class Ship : MonoBehaviour {
         powerUps = new List<PowerUp>();
         HasObjective = false;
         FindObjectOfType<GameManager>().AddShip(this);
+        Camera.main.transform.parent = this.transform;
+        Camera.main.transform.localPosition = new Vector3(0,0,-10);
 	}
 
     void Update () {
