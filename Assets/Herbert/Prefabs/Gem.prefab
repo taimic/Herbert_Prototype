@@ -9,7 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 461022}
   - 212: {fileID: 21283476}
-  m_Layer: 0
+  - 68: {fileID: 6814864}
+  - 114: {fileID: 11403914}
+  m_Layer: 16
   m_Name: Gem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23,12 +25,42 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.96, y: -7.32, z: 0.015625}
+  m_LocalPosition: {x: -0.43, y: -0.88, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!68 &6814864
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138108}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: 0.095538676, y: -2.011078}
+  - {x: -2.7767687, y: 0.6804488}
+  - {x: -1.4365399, y: 2.0086203}
+  - {x: 1.4165595, y: 2.009911}
+  - {x: 2.788319, y: 0.6667421}
+  - {x: 0.09845269, y: -2.011045}
+--- !u!114 &11403914
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 941a9a6eb239b1545b8b343d7c96c318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21283476
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -54,7 +86,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 9929b0a1e80e476409f663d74d3e08d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
