@@ -25,6 +25,7 @@ public class Ship : MonoBehaviour {
     void Start () {
         powerUps = new List<PowerUp>();
         HasObjective = false;
+        FindObjectOfType<GameManager>().AddShip(this);
 	}
 
     void Update () {
