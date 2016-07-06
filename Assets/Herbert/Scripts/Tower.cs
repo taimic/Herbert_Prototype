@@ -66,7 +66,7 @@ public class Tower : MonoBehaviour
         {
             laser.Target = (targetList.Count > 1) ? FindTarget() : targetList[0];
             
-            if (laser.IsShooting)
+            if (!laser.IsShooting)
             {
                 Debug.Log(laser.Target.name + " is set as target.");
                 laser.StartAction();
