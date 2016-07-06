@@ -37,14 +37,14 @@ public class Tower : MonoBehaviour
         }        
     }
 
-    void OnTriggerStay2D(Collider2D other)
-    {
-        // if (other.gameObject.CompareTag("Ship"))
-        if (!other.gameObject.CompareTag("Tower"))
-        {
-            //Debug.Log(other.gameObject + " is within the trigger");
-        }
-    }
+    //void OnTriggerStay2D(Collider2D other)
+    //{
+    //    // if (other.gameObject.CompareTag("Ship"))
+    //    if (!other.gameObject.CompareTag("Tower"))
+    //    {
+    //        //Debug.Log(other.gameObject + " is within the trigger");
+    //    }
+    //}
 
     void OnTriggerExit2D(Collider2D other)
     {
@@ -56,7 +56,6 @@ public class Tower : MonoBehaviour
                 targetList.Remove(other.gameObject);
                 //Debug.Log(other.gameObject + " left the trigger");
                 //Debug.Log(targets.Count + " targets are in the list");
-                
             }
         }
         
@@ -70,6 +69,7 @@ public class Tower : MonoBehaviour
             
             if (laser.IsShooting)
             {
+                Debug.Log(laser.Target.name + " is set as target.");
                 laser.StartAction();
             }
             
@@ -78,6 +78,7 @@ public class Tower : MonoBehaviour
             if (laser.IsShooting)
             {
                 laser.StopAction();
+                Debug.Log(gameObject.name + " is not shooting any more.");
             }
         }
     }

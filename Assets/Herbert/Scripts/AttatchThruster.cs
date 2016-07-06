@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class AttatchThruster : MonoBehaviour, iAttatch {
+public class AttatchThruster : MonoBehaviour, iAttach {
 
     private Rigidbody2D body;
     private GameObject afterBurner;

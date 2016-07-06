@@ -3,9 +3,12 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
+public delegate void ComponentHit(float hpLeft);
+
 public class Component : MonoBehaviour, iControll {
+    public event ComponentHit ComponentHit;
     // --------------------------------
-    // physic settings
+    // physic settings for basic thrusters
     [Range(0, 20)]
     public float thrusterPower;
     [Range(0, 1)]
@@ -13,47 +16,81 @@ public class Component : MonoBehaviour, iControll {
     private float maxDrag = 5.0f;
     // --------------------------------
 
+    private float confirmationTime = 3;
+    private float currentConfirmationTime = 0;
 
-    public Ship Ship;
-    public GameObject[] attatchmentPrefabs;
-    public List<GameObject> attatchments;
+    public GameObject shipPrefab;
+    private Ship ship;
+    public Ship Ship {
+        get {
+            return ship;
+        }
+        set {
+            ship = value;
+        }
+    }
+    private SpriteRenderer baseGraphic;
+
+    public GameObject[] attachmentPrefabs;
+    private List<GameObject> attachments;
+    private int currentAtt = 0; // stores currently selected attachment
 
     private Thruster[] basicThrusters;
 
-    iAttatch attatch = null;
-    GameObject preAttatch = null;
+    // hinge is used to attach stuff
+    private HingeJoint2D hinge;
+
+    iAttach attachment = null;
+    public iAttach Attachment {
+        get {
+            return attachment;
+        }
+    }
+
+    GameObject preAttach = null;
 
     public int playerID = 0;
 
-    private float maxHealts = 10;
+    private float maxHealth = 3;
+    public float MaxHealth {
+        get {
+            return maxHealth;
+        }
+    }
     private float health = 0;
+    public bool componentDestroyed = false;
 
     void Start() {
-        health = maxHealts;
+        health = maxHealth;
+        baseGraphic = GetComponentInChildren<SpriteRenderer>();
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.drag = drag; // do this in update for real time tests
         rb.angularDrag = drag;
 
+        hinge = GetComponent<HingeJoint2D>();
+
         basicThrusters = GetComponentsInChildren<Thruster>();
 
-        attatchments = new List<GameObject>();
-        foreach (GameObject item in attatchmentPrefabs) {
-            if (item.GetComponent<iAttatch>() != null) {
-                GameObject newGO =Instantiate(item);
-                attatchments.Add(newGO);
+        attachments = new List<GameObject>();
+        foreach (GameObject item in attachmentPrefabs) {
+            if (item.GetComponent<iAttach>() != null) {
+                GameObject newGO = (GameObject)Instantiate(item, Vector3.zero, Quaternion.identity);
+                attachments.Add(newGO);
                 newGO.transform.parent = this.transform;
                 newGO.SetActive(false);
             } 
         }
 
-        preAttatch = attatchments[0];
-        preAttatch.SetActive(true);
+        // add hinge
+        hinge = gameObject.AddComponent<HingeJoint2D>();
 
-        //attatch = GetComponentInChildren<iAttatch>();
+        // set first attachment as default
+        preAttach = attachments[0];
+        SetPreAttachment(attachments[0]);
     }
 
     void Update() {
-        if (attatch == null) {
+        if (attachment == null) {
             // used for phase 1
             Move();
             SwitchAttach();
@@ -65,7 +102,27 @@ public class Component : MonoBehaviour, iControll {
         }
     }
 
-    // movement for phase
+    // add component to ship
+    public void AddToShip(Component otherComponent, Vector3 pos) {
+        if (ship != null)
+            return;
+
+        // ohter component has a ship
+        if (otherComponent.Ship != null) {
+            transform.position = otherComponent.transform.position - pos * 2;
+            this.ship = otherComponent.Ship;
+        } // no ship exists yet, make one
+        else {
+            GameObject newShipGO = Instantiate(shipPrefab);
+            newShipGO.transform.position = this.transform.position;
+            Ship newShip = newShipGO.GetComponent<Ship>();
+            this.ship = newShip;
+        }
+        ship.AddComponent(this);
+    }
+
+    // phase 1 controls
+    // movement for phase 1
     public void Move() {
         float x = Input.GetAxis("p" + playerID + "_x");
         float y = Input.GetAxis("p" + playerID + "_y");
@@ -87,34 +144,78 @@ public class Component : MonoBehaviour, iControll {
         }
     }
 
-    private int currentAtt = 0;
     public void SwitchAttach() {
-
-        if (Input.GetButton("p" + playerID + "_action")) { // hold for lock attatchment (~3sec)
-
+        // hold to lock attachment (~3sec)
+        if (Input.GetButton("p" + playerID + "_action")) {
+            if (currentConfirmationTime < confirmationTime) {
+                currentConfirmationTime += Time.deltaTime;
+            }
+            else {
+                // set attachment
+                attachment = preAttach.GetComponent<iAttach>();
+                baseGraphic.color = Color.white;
+                // deactivate all basic thrusters
+                foreach (Thruster item in basicThrusters) {
+                    item.StopThrust();
+                }
+            }
+        }
+        else {
+            if (currentConfirmationTime > 0) {
+                currentConfirmationTime = 0;
+            }
         }
 
         if (Input.GetButtonUp("p" + playerID + "_action")) {
-            preAttatch.SetActive(false);
-            preAttatch = attatchments[++currentAtt % attatchments.Count];
-            print(currentAtt);
-            preAttatch.SetActive(true);
-            // TODO fix attatchment on hinge joint
+
+            SetPreAttachment(attachments[++currentAtt % attachments.Count]);
+
+            //preAttach.SetActive(false);
+            //preAttach = attachments[++currentAtt % attachments.Count];
+            //preAttach.SetActive(true);
+
+            //hinge.connectedBody = preAttach.GetComponent<Rigidbody2D>();
+
+            //preAttach.transform.localPosition = Vector2.zero;
         }
     }
 
+    private void SetPreAttachment(GameObject nextAttach) {
+        preAttach.SetActive(false);
+        preAttach = nextAttach;
+        preAttach.SetActive(true);
+
+        hinge.connectedBody = preAttach.GetComponent<Rigidbody2D>();
+
+        preAttach.transform.localPosition = Vector2.zero;
+    }
+
+    // phase 2 controls
     public void Action() {
         if (Input.GetAxis("p" + playerID + "_action") != 0) {
-            attatch.StartAction();
+            attachment.StartAction();
         }
         else {
-            attatch.StopAction();
+            attachment.StopAction();
         }
     }
 
     public void Rotate() {
         float x = Input.GetAxis("p" + playerID + "_x");
 
-        attatch.Rotate(x);
+        attachment.Rotate(x);
+    }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        // hit by bullet or ohter stuff
+        health -= 1;
+
+        print("left " + health);
+
+        if (health <= 0)
+            componentDestroyed = true;
+
+        if (ComponentHit != null)
+            ComponentHit(health);
     }
 }

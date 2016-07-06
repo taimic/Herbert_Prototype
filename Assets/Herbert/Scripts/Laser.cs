@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class Laser : iAttatch
+public class Laser : iAttach
 {
     private bool isShooting;
     public bool IsShooting
