@@ -6,7 +6,10 @@ public class Laser : MonoBehaviour, iAttach
 {
     private float speed = 5f;
 
-    public GameObject bullet;
+    public GameObject bulletPrefab;
+
+    private float coolDown = 0.333f;
+    private bool cannonReady = true;
 
 
     private bool isShooting;
@@ -49,12 +52,19 @@ public class Laser : MonoBehaviour, iAttach
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.localRotation = Quaternion.Slerp(transform.localRotation, q, Time.deltaTime * speed);
             
-            if (IsShooting)
+            if (IsShooting && cannonReady)
             {
-                //TODO shoot 
-                // shoot in direction of transform.rotation. 
+                Instantiate(bulletPrefab, transform.position, transform.localRotation);
+                StartCoroutine(CannonCooldown());
             }
         }
+    }
+
+    IEnumerator CannonCooldown()
+    {
+        cannonReady = false;
+        yield return new WaitForSeconds(coolDown);
+        cannonReady = true;
     }
 }
 
