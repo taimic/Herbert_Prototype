@@ -29,6 +29,6 @@ public class AttatchThruster : MonoBehaviour, iAttach {
     }
 
     public void Rotate(float a) {
-        body.AddTorque(a * Time.deltaTime * 400);
+        body.AddTorque(-a * Time.deltaTime * 400);
     }
 }
