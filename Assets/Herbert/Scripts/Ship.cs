@@ -6,6 +6,7 @@ public class Ship : MonoBehaviour {
     [SerializeField]
     List<Component> components;
     List<PowerUp> powerUps;
+    [SerializeField]
     bool hasObjective;
 
     public bool HasObjective

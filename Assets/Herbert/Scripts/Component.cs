@@ -217,6 +217,8 @@ public class Component : MonoBehaviour, iControll {
     }
 
     void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.layer.ToString() != "Bullet")
+            return;
         // hit by bullet or ohter stuff
         health -= 1;
 
