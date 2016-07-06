@@ -16,10 +16,10 @@ TagManager:
   - 
   - 
   - Level
-  - Bullet
+  - BulletEnemy
   - Anchor
-  - 
-  - 
+  - Component
+  - BulletPlayer
   - 
   - 
   - 

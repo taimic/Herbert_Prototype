@@ -90,6 +90,9 @@ public class Component : MonoBehaviour, iControll {
     }
 
     void Update() {
+        if (componentDestroyed)
+            return;
+
         if (attachment == null) {
             // used for phase 1
             Move();
@@ -119,6 +122,8 @@ public class Component : MonoBehaviour, iControll {
             this.ship = newShip;
         }
         ship.AddComponent(this);
+
+        GetComponent<HerbertComponent>().isDocked = true;
     }
 
     // phase 1 controls
@@ -206,14 +211,17 @@ public class Component : MonoBehaviour, iControll {
         attachment.Rotate(x);
     }
 
+    private void DestroyComp() {
+        componentDestroyed = true;
+        baseGraphic.color = Color.grey;
+    }
+
     void OnTriggerEnter2D(Collider2D other) {
         // hit by bullet or ohter stuff
         health -= 1;
 
-        print("left " + health);
-
         if (health <= 0)
-            componentDestroyed = true;
+            DestroyComp();
 
         if (ComponentHit != null)
             ComponentHit(health);

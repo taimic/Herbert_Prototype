@@ -12,4 +12,9 @@ public class Bullet : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    void OnTriggerEnter2D(Collider2D other) {
+        // hit by bullet or ohter stuff
+        Destroy(this.gameObject);
+    }
 }
