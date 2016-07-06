@@ -30,8 +30,8 @@ public class Tower : MonoBehaviour
             if (!other.gameObject.CompareTag("Tower"))
             {
                 targetList.Add(other.gameObject);
-                Debug.Log(other.gameObject + " entered the trigger");
-                Debug.Log(targetList.Count + " targets are in the list");
+                //Debug.Log(other.gameObject + " entered the trigger");
+                //Debug.Log(targetList.Count + " targets are in the list");
             }
         }        
     }
@@ -53,8 +53,8 @@ public class Tower : MonoBehaviour
             if (!other.gameObject.CompareTag("Tower"))
             {
                 targetList.Remove(other.gameObject);
-                Debug.Log(other.gameObject + " left the trigger");
-                Debug.Log(targetList.Count + " targets are in the list");
+                //Debug.Log(other.gameObject + " left the trigger");
+                //Debug.Log(targetList.Count + " targets are in the list");
             }
         }
         

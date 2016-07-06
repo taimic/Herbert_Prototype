@@ -6,6 +6,8 @@ public class Laser : MonoBehaviour, iAttach
 {
     private float speed = 5f;
 
+    public GameObject bullet;
+
 
     private bool isShooting;
     public bool IsShooting
