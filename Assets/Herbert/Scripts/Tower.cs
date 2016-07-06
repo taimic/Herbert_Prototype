@@ -12,36 +12,29 @@ public class Tower : MonoBehaviour
     /** list of targets within the trigger */
     private List<GameObject> targetList;
 
-
-	void Start()
+    private float maxHealth = 3;
+    public float MaxHealth
     {
+        get
+        {
+            return maxHealth;
+        }
+    }
+    private float health = 0;
+    public bool componentDestroyed = false;
+
+    private SpriteRenderer baseGraphic;
+
+    void Start()
+    {
+        health = maxHealth;
+        baseGraphic = GetComponentInChildren<SpriteRenderer>();
         targetList = new List<GameObject>();
-        Activate();       
+        Activate();     // TODO Tower eventuell erst aktivieren wenn Objective eingesammelt?   
     }
 
 	public void Activate() { active = true; }
 
-	void OnTriggerEnter2D(Collider2D other)
-    {
-        if (active)
-        {
-            targetList.Add(other.gameObject);
-            //Debug.Log(other.gameObject + " entered the trigger");
-            //Debug.Log(targetList.Count + " targets are in the list");
-        }        
-    }
-    
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (active)
-        {
-            targetList.Remove(other.gameObject);
-            //Debug.Log(other.gameObject + " left the trigger");
-            //Debug.Log(targetList.Count + " targets are in the list");
-        }
-        
-    }
 
     public void Update()
     {
@@ -78,6 +71,45 @@ public class Tower : MonoBehaviour
         }
         return target;
     }
+
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (active && other.gameObject.CompareTag("Player")) // TODO
+        {
+            targetList.Add(other.gameObject);
+            //Debug.Log(other.gameObject + " entered the trigger");
+            //Debug.Log(targetList.Count + " targets are in the list");
+        }
+    }
+
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (active && other.gameObject.CompareTag("Player")) // TODO
+        {
+            targetList.Remove(other.gameObject);
+            //Debug.Log(other.gameObject + " left the trigger");
+            //Debug.Log(targetList.Count + " targets are in the list");
+        }
+    }
+
+    private void DestroyComp()
+    {
+        componentDestroyed = true;
+        baseGraphic.color = Color.grey;
+    }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        // hit by bullet or ohter stuff
+        health -= 1;
+
+        if (health <= 0)
+            DestroyComp();
+    }
+
+
 
 
 }
