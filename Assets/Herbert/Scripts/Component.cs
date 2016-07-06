@@ -119,6 +119,7 @@ public class Component : MonoBehaviour, iControll {
             this.ship = newShip;
         }
         ship.AddComponent(this);
+
     }
 
     // phase 1 controls
