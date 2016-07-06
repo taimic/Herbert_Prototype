@@ -7,7 +7,6 @@ public class Tower : MonoBehaviour
 {
 	public Laser laser;
 
-	private int Energy = 100;
 	private bool active = false;
 
     /** list of targets within the trigger */
@@ -35,15 +34,7 @@ public class Tower : MonoBehaviour
             }
         }        
     }
-
-    //void OnTriggerStay2D(Collider2D other)
-    //{
-    //    // if (other.gameObject.CompareTag("Ship"))
-    //    if (!other.gameObject.CompareTag("Tower"))
-    //    {
-    //        //Debug.Log(other.gameObject + " is within the trigger");
-    //    }
-    //}
+    
 
     void OnTriggerExit2D(Collider2D other)
     {

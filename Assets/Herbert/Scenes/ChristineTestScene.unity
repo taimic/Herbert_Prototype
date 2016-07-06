@@ -425,10 +425,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11458100, guid: c2ab7413ac24b814eb3bb113be38be58, type: 2}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 112582, guid: 00e3c88466438af4388bc582238a2312, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2ab7413ac24b814eb3bb113be38be58, type: 2}
   m_IsPrefabParent: 0
@@ -482,6 +478,14 @@ Prefab:
     - target: {fileID: 144790, guid: c2ab7413ac24b814eb3bb113be38be58, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21226866, guid: c2ab7413ac24b814eb3bb113be38be58, type: 2}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 21226866, guid: c2ab7413ac24b814eb3bb113be38be58, type: 2}
+      propertyPath: m_FlipY
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2ab7413ac24b814eb3bb113be38be58, type: 2}
