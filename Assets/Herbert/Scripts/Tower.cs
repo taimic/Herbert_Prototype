@@ -75,7 +75,7 @@ public class Tower : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (active)
+        if (active && other.gameObject.CompareTag("Player")) // TODO
         {
             targetList.Add(other.gameObject);
             //Debug.Log(other.gameObject + " entered the trigger");
@@ -86,13 +86,12 @@ public class Tower : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (active)
+        if (active && other.gameObject.CompareTag("Player")) // TODO
         {
             targetList.Remove(other.gameObject);
             //Debug.Log(other.gameObject + " left the trigger");
             //Debug.Log(targetList.Count + " targets are in the list");
         }
-
     }
 
     private void DestroyComp()
