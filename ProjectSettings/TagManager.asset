@@ -21,7 +21,7 @@ TagManager:
   - Component
   - BulletPlayer
   - Enemy
-  - 
+  - SpawnPoint
   - 
   - 
   - 

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class SpawnPoint : MonoBehaviour {
-    public List<Collision2D> collisions;
+    public List<Collider2D> collisions;
 
     public bool HasCollision()
     {
@@ -11,7 +11,7 @@ public class SpawnPoint : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
-	    collisions = new List<Collision2D>();
+	    collisions = new List<Collider2D>();
 	}
 	
 	// Update is called once per frame
@@ -19,12 +19,12 @@ public class SpawnPoint : MonoBehaviour {
 	
 	}
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         collisions.Add(other);
     }
 
-    void OnCollisionExit2D(Collision2D other)
+    void OnTriggerExit2D(Collider2D other)
     {
         collisions.Remove(other);
     }
