@@ -29,8 +29,7 @@ public class Laser : MonoBehaviour, iAttach
 
     public void Rotate(float a)
     {
-        //TODO Rotate();
-        
+        // Rotation happens in Update        
     }
 
     public void StartAction()
@@ -54,7 +53,8 @@ public class Laser : MonoBehaviour, iAttach
             
             if (IsShooting && cannonReady)
             {
-                Instantiate(bulletPrefab, transform.position, transform.localRotation);
+                Quaternion dir = transform.localRotation * Quaternion.Euler(0, 0, -90);
+                Instantiate(bulletPrefab, transform.position, dir);
                 StartCoroutine(CannonCooldown());
             }
         }
