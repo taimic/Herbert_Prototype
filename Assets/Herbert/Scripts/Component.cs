@@ -3,7 +3,10 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
+public delegate void ComponentHit(float hpLeft);
+
 public class Component : MonoBehaviour, iControll {
+    public event ComponentHit ComponentHit;
     // --------------------------------
     // physic settings for basic thrusters
     [Range(0, 20)]
@@ -43,15 +46,22 @@ public class Component : MonoBehaviour, iControll {
             return attachment;
         }
     }
+
     GameObject preAttach = null;
 
     public int playerID = 0;
 
-    private float maxHealts = 10;
+    private float maxHealth = 3;
+    public float MaxHealth {
+        get {
+            return maxHealth;
+        }
+    }
     private float health = 0;
+    public bool componentDestroyed = false;
 
     void Start() {
-        health = maxHealts;
+        health = maxHealth;
         baseGraphic = GetComponentInChildren<SpriteRenderer>();
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.drag = drag; // do this in update for real time tests
@@ -194,5 +204,18 @@ public class Component : MonoBehaviour, iControll {
         float x = Input.GetAxis("p" + playerID + "_x");
 
         attachment.Rotate(x);
+    }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        // hit by bullet or ohter stuff
+        health -= 1;
+
+        print("left " + health);
+
+        if (health <= 0)
+            componentDestroyed = true;
+
+        if (ComponentHit != null)
+            ComponentHit(health);
     }
 }
