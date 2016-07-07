@@ -504,6 +504,97 @@ CircleCollider2D:
   m_Offset: {x: -0.0000009536743, y: 0}
   serializedVersion: 2
   m_Radius: 1.07
+--- !u!1001 &117240401
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 497520, guid: db2277b929401cb4d9830838669f8691, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.323
+      objectReference: {fileID: 0}
+    - target: {fileID: 497520, guid: db2277b929401cb4d9830838669f8691, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -7.465
+      objectReference: {fileID: 0}
+    - target: {fileID: 497520, guid: db2277b929401cb4d9830838669f8691, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 497520, guid: db2277b929401cb4d9830838669f8691, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 497520, guid: db2277b929401cb4d9830838669f8691, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 497520, guid: db2277b929401cb4d9830838669f8691, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 497520, guid: db2277b929401cb4d9830838669f8691, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 497520, guid: db2277b929401cb4d9830838669f8691, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 497774, guid: db2277b929401cb4d9830838669f8691, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 497774, guid: db2277b929401cb4d9830838669f8691, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 497774, guid: db2277b929401cb4d9830838669f8691, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 21222438, guid: db2277b929401cb4d9830838669f8691, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9db697e1f8d45ca45aed8b16327e3da6,
+        type: 3}
+    - target: {fileID: 21222438, guid: db2277b929401cb4d9830838669f8691, type: 2}
+      propertyPath: m_Color.a
+      value: 0.7058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 11486346, guid: db2277b929401cb4d9830838669f8691, type: 2}
+      propertyPath: reviveBar
+      value: 
+      objectReference: {fileID: 1276890428}
+    - target: {fileID: 21222438, guid: db2277b929401cb4d9830838669f8691, type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21222438, guid: db2277b929401cb4d9830838669f8691, type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 21222438, guid: db2277b929401cb4d9830838669f8691, type: 2}
+      propertyPath: m_Color.r
+      value: 0.11724126
+      objectReference: {fileID: 0}
+    - target: {fileID: 418256, guid: db2277b929401cb4d9830838669f8691, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 418256, guid: db2277b929401cb4d9830838669f8691, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 418256, guid: db2277b929401cb4d9830838669f8691, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: db2277b929401cb4d9830838669f8691, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &131767820
 Prefab:
   m_ObjectHideFlags: 0
@@ -5050,6 +5141,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90029c288d6be2f47bc1e5aecd88a59e, type: 2}
   m_IsPrefabParent: 0
+--- !u!212 &1276890428 stripped
+SpriteRenderer:
+  m_PrefabParentObject: {fileID: 21222438, guid: db2277b929401cb4d9830838669f8691,
+    type: 2}
+  m_PrefabInternal: {fileID: 117240401}
 --- !u!1001 &1317729730
 Prefab:
   m_ObjectHideFlags: 0
