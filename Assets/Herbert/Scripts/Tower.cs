@@ -118,6 +118,7 @@ public class Tower : MonoBehaviour
     {
         componentDestroyed = false;
         baseGraphic.color = Color.white;
+        health = maxHealth;
         active = true;
     }
 
