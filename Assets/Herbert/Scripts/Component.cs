@@ -278,6 +278,8 @@ public class Component : MonoBehaviour, iControll {
                 reviveTime = 0;
                 componentDestroyed = false;
                 baseGraphic.color = Color.white;
+                if (ComponentHit != null)
+                    ComponentHit(health);
             }
         }
     }
