@@ -8,6 +8,7 @@ public class Tower : MonoBehaviour
 	public Laser laser;
 
 	private bool active = false;
+    public float coolDown = 5f;
 
     /** list of targets within the trigger */
     private List<GameObject> targetList;
@@ -21,7 +22,7 @@ public class Tower : MonoBehaviour
         }
     }
     private float health = 0;
-    public bool componentDestroyed = false;
+    private bool componentDestroyed = false;
 
     private SpriteRenderer baseGraphic;
 
@@ -100,6 +101,15 @@ public class Tower : MonoBehaviour
         baseGraphic.color = Color.grey;
         active = false;
         laser.StopAction();
+        StartCoroutine(TowerRespawn());
+
+    }
+
+    private void Respawn()
+    {
+        componentDestroyed = false;
+        baseGraphic.color = Color.clear;
+        active = true;
     }
 
     void OnCollisionEnter2D(Collision2D coll)
@@ -114,7 +124,11 @@ public class Tower : MonoBehaviour
         }
     }
 
-
+    IEnumerator TowerRespawn()
+    {
+        yield return new WaitForSeconds(coolDown);
+        Respawn();
+    }
 
 
 }
