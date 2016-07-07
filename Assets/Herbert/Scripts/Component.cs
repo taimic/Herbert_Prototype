@@ -64,6 +64,13 @@ public class Component : MonoBehaviour, iControll {
         }
     }
     private float health = 0;
+
+    public float Health
+    {
+        get { return health; }
+        set { health = value; }
+    }
+
     private bool componentDestroyed = false;
     private float downDuration = 3.0f;
     private float reviveTime = 0;
@@ -73,11 +80,13 @@ public class Component : MonoBehaviour, iControll {
         if (isBoost)
         {
             maxHealth = 6;
-            health = 0;
+            health = 6;
+            downDuration = 10.0f;
         } else
         {
             maxHealth = 3;
             health = 0;
+            downDuration = 3.0f;
         }
     }
 

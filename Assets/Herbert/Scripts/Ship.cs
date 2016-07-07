@@ -10,7 +10,7 @@ public class Ship : MonoBehaviour {
     bool hasObjective;
 
     public int Id { get; set; }
-
+    public GameObject objectivePrefab;
     private Vector3 finalCenter = Vector3.zero;
 
     public static List<Ship> ships = new List<Ship>();
@@ -36,6 +36,27 @@ public class Ship : MonoBehaviour {
             hasObjective = value;
             foreach (var c in components)
                 c.ObjectiveBoost(hasObjective);
+            if (hasObjective) {
+                GetComponentInChildren<SpriteRenderer>().sprite = FindObjectOfType<Objective>().GetComponent<SpriteRenderer>().sprite;
+            } else
+            {
+                GetComponentInChildren<SpriteRenderer>().sprite = null;
+                Instantiate(objectivePrefab, this.transform.position, new Quaternion());
+            }
+        }
+    }
+
+    void CheckObjective()
+    {
+        if (!HasObjective) return;
+        foreach (var c in components)
+        {
+            if (c.Health > 0)
+            {
+                HasObjective = false;
+                break;
+            }
+
         }
     }
 
@@ -50,7 +71,9 @@ public class Ship : MonoBehaviour {
     void Update () {
         //Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z);
         CheckIfShipReady();
-	}
+        CheckObjective();
+
+    }
 
     // TODO: do this when ship is ready to go (phase 2)
     bool shipReady = false;
