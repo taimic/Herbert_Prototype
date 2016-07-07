@@ -76,7 +76,7 @@ public class Tower : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (active && other.gameObject.CompareTag("Player")) // TODO
+        if (other.gameObject.CompareTag("Player")) 
         {
             targetList.Add(other.gameObject);
             //Debug.Log(other.gameObject + " entered the trigger");
@@ -87,7 +87,7 @@ public class Tower : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (active && other.gameObject.CompareTag("Player")) // TODO
+        if (other.gameObject.CompareTag("Player")) 
         {
             targetList.Remove(other.gameObject);
             //Debug.Log(other.gameObject + " left the trigger");
@@ -108,7 +108,7 @@ public class Tower : MonoBehaviour
     private void Respawn()
     {
         componentDestroyed = false;
-        baseGraphic.color = Color.clear;
+        baseGraphic.color = Color.white;
         active = true;
     }
 

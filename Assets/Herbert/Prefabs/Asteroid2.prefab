@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 477690}
   - 212: {fileID: 21253612}
   - 50: {fileID: 5069152}
+  - 114: {fileID: 11415036}
   m_Layer: 0
   m_Name: Asteroid2
   m_TagString: Untagged
@@ -47,6 +48,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &11415036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33ba0f9fb347934e96e9b8ec25c1a4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21253612
 SpriteRenderer:
   m_ObjectHideFlags: 1
