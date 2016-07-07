@@ -43,7 +43,6 @@ public class Ship : MonoBehaviour {
 
     void Update () {
         //Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z);
-        transform.position = GetCenter();
         CheckIfShipReady();
 	}
 
@@ -64,13 +63,16 @@ public class Ship : MonoBehaviour {
     public void AddComponent(Component component)
     {
         Rigidbody2D rb = component.GetComponent<Rigidbody2D>();
-        FixedJoint2D newJoint =  gameObject.AddComponent<FixedJoint2D>();
+        FixedJoint2D newJoint = gameObject.AddComponent<FixedJoint2D>();
+        //RelativeJoint2D newJoint = gameObject.AddComponent<RelativeJoint2D>();
         newJoint.connectedBody = rb;
+
         if (components == null)
             components = new List<Component>();
 
         components.Add(component);
         component.Ship = this;
+        transform.position = GetCenter();
         //print("woop " + component.GetInstanceID() + " #:" + components.Count);
     }
 
