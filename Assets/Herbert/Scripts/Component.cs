@@ -7,6 +7,7 @@ public delegate void ComponentHit(float hpLeft);
 
 public class Component : MonoBehaviour, iControll {
     public event ComponentHit ComponentHit;
+    public event ComponentHit ReviveEvent;
     // --------------------------------
     // physic settings for basic thrusters
     [Range(0, 20)]
@@ -64,7 +65,7 @@ public class Component : MonoBehaviour, iControll {
     }
     private float health = 0;
     private bool componentDestroyed = false;
-    private float downDuration = 2.0f;
+    private float downDuration = 3.0f;
     private float reviveTime = 0;
 
     public void ObjectiveBoost(bool isBoost)
@@ -272,7 +273,7 @@ public class Component : MonoBehaviour, iControll {
 
     private void DestroyComp() {
         componentDestroyed = true;
-        baseGraphic.color = Color.grey;
+        baseGraphic.color = Color.black;
         if(attachment != null)
         {
             attachment.StopAction();
@@ -287,6 +288,9 @@ public class Component : MonoBehaviour, iControll {
         if (componentDestroyed) {
             if (reviveTime < downDuration) {
                 reviveTime += Time.deltaTime;
+                if (ReviveEvent != null)
+                    ReviveEvent(reviveTime / downDuration);
+
             } else {
                 health = maxHealth;
                 reviveTime = 0;
