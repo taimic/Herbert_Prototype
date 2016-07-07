@@ -22,8 +22,9 @@ public class AttatchCannon : MonoBehaviour, iAttach {
     public void StartAction() {
         if (!cannonReady)
             return;
-
-        Instantiate(bulletPrefab, graphicTransform.position, graphicTransform.rotation);
+        
+        Bullet b = (Bullet)Instantiate(bulletPrefab, graphicTransform.position, graphicTransform.rotation);
+        b.CollisionId = GetComponentInParent<Component>().getShipId();
         StartCoroutine(CannonCooldown());
         audio.Play();
     }

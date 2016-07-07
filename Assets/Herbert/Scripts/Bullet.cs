@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Bullet : MonoBehaviour {
+    public int CollisionId { get; set; }
     public float speed;
     public float maxLifetime = 10;
 	// Use this for initialization
@@ -11,8 +12,21 @@ public class Bullet : MonoBehaviour {
 	}
 
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Component c = other.gameObject.GetComponent<Component>();
+        if (c != null && c.getShipId() != CollisionId)
+        {
+            c.gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.GetComponent<Rigidbody2D>().velocity*10, ForceMode2D.Force);
+            c.HandleCollision();
+            Destroy(this.gameObject);
+        }
+        
+    }
+
     void OnCollisionEnter2D(Collision2D other) {
+
         // hit by bullet or ohter stuff
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
     }
 }

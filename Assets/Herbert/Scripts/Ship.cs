@@ -9,6 +9,8 @@ public class Ship : MonoBehaviour {
     [SerializeField]
     bool hasObjective;
 
+    public int Id { get; set; }
+
     private Vector3 finalCenter = Vector3.zero;
 
     public static List<Ship> ships = new List<Ship>();

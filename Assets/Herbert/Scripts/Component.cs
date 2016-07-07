@@ -112,6 +112,11 @@ public class Component : MonoBehaviour, iControll {
         }
     }
 
+    public int getShipId()
+    {
+        return this.ship.Id;
+    }
+
     // add component to ship
     public void AddToShip(Component otherComponent, Vector3 pos) {
         if (ship != null)
@@ -126,6 +131,7 @@ public class Component : MonoBehaviour, iControll {
             GameObject newShipGO = Instantiate(shipPrefab);
             newShipGO.transform.position = this.transform.position;
             Ship newShip = newShipGO.GetComponent<Ship>();
+            newShip.Id = playerID;
             this.ship = newShip;
         }
         ship.AddComponent(this);
@@ -255,11 +261,13 @@ public class Component : MonoBehaviour, iControll {
             thruster.StopThrust();
         }
     }
-
-    void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.layer != LayerMask.NameToLayer("BulletEnemy"))
-            return;
+    public void HandleCollision()
+    {
+        //if (other.gameObject.layer != LayerMask.NameToLayer("BulletEnemy"))
+        //return;
         // hit by bullet or ohter stuff
+        //Bullet b = (Bullet)other.gameObject.GetComponent<Bullet>();
+       // if (b != null && b.CollisionId == getShipId()) return;
         health -= 1;
 
         if (health <= 0)
@@ -268,4 +276,5 @@ public class Component : MonoBehaviour, iControll {
         if (ComponentHit != null)
             ComponentHit(health);
     }
+   
 }
