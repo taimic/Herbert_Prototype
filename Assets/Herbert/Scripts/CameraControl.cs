@@ -32,7 +32,7 @@ public class CameraControl : MonoBehaviour {
         cam.transform.position = new Vector3(center.x, center.y, cam.transform.position.z);
        // cam.transform.position = new Vector3(10, 10, 0);
 
-        float size = (float)(Mathf.Abs(max - min) * Screen.height / Screen.width * 0.5) + 3;
+        float size = (float)(Mathf.Abs(max - min) * Screen.height / Screen.width * 0.5) + 10;
         if (size < 8) size = 8;
         cam.orthographicSize = size;
     }
