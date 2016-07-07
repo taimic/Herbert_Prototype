@@ -9,6 +9,8 @@ public class Ship : MonoBehaviour {
     [SerializeField]
     bool hasObjective;
 
+    private Vector3 finalCenter = Vector3.zero;
+
     public static List<Ship> ships = new List<Ship>();
 
     public void OnEnable(){
@@ -76,11 +78,14 @@ public class Ship : MonoBehaviour {
 
     private Vector3 GetCenter()
     {
+        if (shipReady) return finalCenter;
+
         Vector3 center = Vector3.zero;
         foreach (Component c in components)
         {
             center += c.transform.position;
         }
-        return center /= components.Count;
+        finalCenter = center /= components.Count;
+        return finalCenter;
     }
 }
