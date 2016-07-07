@@ -21,6 +21,9 @@ public class Component : MonoBehaviour, iControll {
 
     private AudioSource audio;
 
+    public AudioClip changeAttachClip;
+    public AudioClip mergeComponentsClip;
+
     public GameObject shipPrefab;
     private Ship ship;
     public Ship Ship {
@@ -127,6 +130,9 @@ public class Component : MonoBehaviour, iControll {
         }
         ship.AddComponent(this);
 
+        audio.clip = mergeComponentsClip;
+        audio.time = 0.23f;
+        audio.pitch = 1.44f;
         audio.Play();
         GetComponent<HerbertComponent>().isDocked = true;
     }
@@ -168,6 +174,8 @@ public class Component : MonoBehaviour, iControll {
     public void SwitchAttach() {
         // hold to lock attachment (~3sec)
         if (Input.GetButton("p" + playerID + "_action")) {
+            if (ship == null)
+                return;
             if (currentConfirmationTime < confirmationTime) {
                 currentConfirmationTime += Time.deltaTime;
             }
@@ -179,6 +187,10 @@ public class Component : MonoBehaviour, iControll {
                 foreach (Thruster item in basicThrusters) {
                     item.StopThrust();
                 }
+                audio.clip = mergeComponentsClip;
+                audio.time = 0.33f;
+                audio.pitch = 2.22f;
+                audio.Play();
             }
         }
         else {
@@ -190,7 +202,11 @@ public class Component : MonoBehaviour, iControll {
         if (Input.GetButtonUp("p" + playerID + "_action")) {
 
             SetPreAttachment(attachments[++currentAtt % attachments.Count]);
-
+            audio.clip = changeAttachClip;
+            audio.time = 0.17f;
+            audio.pitch = 1;
+            audio.Play();
+            //audio.PlayOneShot(changeAttachClip);
             //preAttach.SetActive(false);
             //preAttach = attachments[++currentAtt % attachments.Count];
             //preAttach.SetActive(true);
