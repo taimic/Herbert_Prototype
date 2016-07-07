@@ -12,16 +12,18 @@ public class Bullet : MonoBehaviour {
 	}
 
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        Component c = other.gameObject.GetComponent<Component>();
-        if (c != null && c.getShipId() != CollisionId)
-        {
-            c.gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.GetComponent<Rigidbody2D>().velocity*10, ForceMode2D.Force);
+    void OnTriggerEnter2D(Collider2D other) {
+        Component c = other.GetComponent<Component>();
+
+        if (c != null && c.getShipId() != CollisionId) {
+            c.gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.GetComponent<Rigidbody2D>().velocity * 10, ForceMode2D.Force);
+            c.HandleCollision();
+            Destroy(this.gameObject);
+        } else if (c != null && CollisionId == -1) {
+            c.gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.GetComponent<Rigidbody2D>().velocity * 10, ForceMode2D.Force);
             c.HandleCollision();
             Destroy(this.gameObject);
         }
-        
     }
 
     void OnCollisionEnter2D(Collision2D other) {

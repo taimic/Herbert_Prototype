@@ -25,6 +25,9 @@ public class Goal : MonoBehaviour {
         Component comp = other.GetComponent<Component>();
         if (comp != null)
         {
+            if (comp.Ship == null)
+                return;
+
             if (comp.Ship.HasObjective)
             {
                 // game over

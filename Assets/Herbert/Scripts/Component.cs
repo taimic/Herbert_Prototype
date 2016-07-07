@@ -63,7 +63,9 @@ public class Component : MonoBehaviour, iControll {
         }
     }
     private float health = 0;
-    public bool componentDestroyed = false;
+    private bool componentDestroyed = false;
+    private float downDuration = 2.0f;
+    private float reviveTime = 0;
 
     void Start() {
         health = maxHealth;
@@ -97,8 +99,11 @@ public class Component : MonoBehaviour, iControll {
     }
 
     void Update() {
-        if (componentDestroyed)
+        if (componentDestroyed) {
+            ReviveComponent();
             return;
+        }
+            
 
         if (attachment == null) {
             // used for phase 1
@@ -114,6 +119,8 @@ public class Component : MonoBehaviour, iControll {
 
     public int getShipId()
     {
+        if (ship == null)
+            return -1;
         return this.ship.Id;
     }
 
@@ -261,6 +268,20 @@ public class Component : MonoBehaviour, iControll {
             thruster.StopThrust();
         }
     }
+
+    private void ReviveComponent() {
+        if (componentDestroyed) {
+            if (reviveTime < downDuration) {
+                reviveTime += Time.deltaTime;
+            } else {
+                health = maxHealth;
+                reviveTime = 0;
+                componentDestroyed = false;
+                baseGraphic.color = Color.white;
+            }
+        }
+    }
+
     public void HandleCollision()
     {
         //if (other.gameObject.layer != LayerMask.NameToLayer("BulletEnemy"))

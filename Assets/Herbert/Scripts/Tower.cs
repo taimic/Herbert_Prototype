@@ -112,16 +112,20 @@ public class Tower : MonoBehaviour
         active = true;
     }
 
-    void OnCollisionEnter2D(Collision2D coll)
-    {
-        if (coll.gameObject.CompareTag("BulletPlayer"))
-        {
-            // hit by bullet or ohter stuff
-            health -= 1;
+    //void OnCollisionEnter2D(Collision2D coll)
+    //{
+    //    if (coll.gameObject.CompareTag("BulletPlayer"))
+    //    {
+    //        // hit by bullet or ohter stuff
 
-            if (health <= 0)
-                DestroyComp();
-        }
+    //    }
+    //}
+
+    public void HitTower() {
+        health -= 1;
+
+        if (health <= 0)
+            DestroyComp();
     }
 
     IEnumerator TowerRespawn()

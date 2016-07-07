@@ -54,7 +54,8 @@ public class Laser : MonoBehaviour, iAttach
             if (IsShooting && cannonReady)
             {
                 Quaternion dir = transform.localRotation * Quaternion.Euler(0, 0, -90);
-                Instantiate(bulletPrefab, transform.position, dir);
+                GameObject go = (GameObject)Instantiate(bulletPrefab, transform.position, dir);
+                go.GetComponent<Bullet>() .CollisionId = -1;
                 StartCoroutine(CannonCooldown());
             }
         }
