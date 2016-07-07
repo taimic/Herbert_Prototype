@@ -9,6 +9,17 @@ public class Ship : MonoBehaviour {
     [SerializeField]
     bool hasObjective;
 
+    public static List<Ship> ships = new List<Ship>();
+
+    public void OnEnable(){
+        ships.Add(this);
+    }
+
+    public void OnDisable()
+    {
+        ships.Remove(this);
+    }
+
     public bool HasObjective
     {
         get
@@ -31,7 +42,8 @@ public class Ship : MonoBehaviour {
 	}
 
     void Update () {
-        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z);
+        //Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z);
+        transform.position = GetCenter();
         CheckIfShipReady();
 	}
 
@@ -60,5 +72,15 @@ public class Ship : MonoBehaviour {
         components.Add(component);
         component.Ship = this;
         //print("woop " + component.GetInstanceID() + " #:" + components.Count);
+    }
+
+    private Vector3 GetCenter()
+    {
+        Vector3 center = Vector3.zero;
+        foreach (Component c in components)
+        {
+            center += c.transform.position;
+        }
+        return center /= components.Count;
     }
 }
