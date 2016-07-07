@@ -44,18 +44,20 @@ public class Laser : MonoBehaviour, iAttach
 
     public void Update()
     {
-        if (target != null)
-        {
+        GunUpdate();
+    }
+
+    public virtual void GunUpdate() {
+        if (target != null) {
             Vector3 vectorToTarget = target.transform.position - transform.position;
             float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.localRotation = Quaternion.Slerp(transform.localRotation, q, Time.deltaTime * speed);
-            
-            if (IsShooting && cannonReady)
-            {
+
+            if (IsShooting && cannonReady) {
                 Quaternion dir = transform.localRotation * Quaternion.Euler(0, 0, -90);
                 GameObject go = (GameObject)Instantiate(bulletPrefab, transform.position, dir);
-                go.GetComponent<Bullet>() .CollisionId = -1;
+                go.GetComponent<Bullet>().CollisionId = -1;
                 StartCoroutine(CannonCooldown());
             }
         }

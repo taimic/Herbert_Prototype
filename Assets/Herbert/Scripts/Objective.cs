@@ -17,11 +17,15 @@ public class Objective : MonoBehaviour {
     {
         Component comp = other.GetComponent<Component>();
         print("Collect");
+        if (comp.Ship.HasObjective || !comp.Ship.HasEnergy()) return;
+
         if (comp == null)
             return;
         if (comp.Ship == null)
             return;
+
         
+
         comp.Ship.HasObjective = true;
 
         AudioSource.PlayClipAtPoint(audio.clip, transform.position);

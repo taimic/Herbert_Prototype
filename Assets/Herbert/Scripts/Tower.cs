@@ -65,6 +65,15 @@ public class Tower : MonoBehaviour
         float distance = Vector3.Distance(target.transform.position, transform.position);
         foreach (GameObject t in targetList)
         {
+            // chose ship with objective as target always
+            if (t.GetComponent<Component>() != null)
+            {
+                if (t.GetComponent<Component>().Ship.HasObjective)
+                {
+                    target = t;
+                    return target;
+                }
+            }
             if (Vector3.Distance(t.transform.position, transform.position) < distance)
             {
                 target = t;

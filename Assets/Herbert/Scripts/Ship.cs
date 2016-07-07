@@ -37,7 +37,7 @@ public class Ship : MonoBehaviour {
             foreach (var c in components)
                 c.ObjectiveBoost(hasObjective);
             if (hasObjective) {
-                GetComponentInChildren<SpriteRenderer>().sprite = FindObjectOfType<Objective>().GetComponent<SpriteRenderer>().sprite;
+                GetComponentInChildren<SpriteRenderer>().sprite = objectivePrefab.GetComponent<SpriteRenderer>().sprite;
             } else
             {
                 GetComponentInChildren<SpriteRenderer>().sprite = null;
@@ -46,24 +46,24 @@ public class Ship : MonoBehaviour {
         }
     }
 
+    public bool HasEnergy()
+    {
+        foreach (var c in components)
+            if (c.Health > 0)
+                return true;
+        return false;
+    }
+
     void CheckObjective()
     {
         if (!HasObjective) return;
-        foreach (var c in components)
-        {
-            if (c.Health > 0)
-            {
-                HasObjective = false;
-                break;
-            }
-
-        }
+        if (!HasEnergy()) HasObjective = false;
     }
 
     // Use this for initialization
     void Start () {
         powerUps = new List<PowerUp>();
-        HasObjective = false;
+        hasObjective = false;
         FindObjectOfType<GameManager>().AddShip(this);
         
 	}

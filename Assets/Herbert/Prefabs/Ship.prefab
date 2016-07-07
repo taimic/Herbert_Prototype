@@ -43,6 +43,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   components: []
   hasObjective: 0
+  objectivePrefab: {fileID: 138108, guid: 90029c288d6be2f47bc1e5aecd88a59e, type: 2}
 --- !u!212 &21255228
 SpriteRenderer:
   m_ObjectHideFlags: 1
