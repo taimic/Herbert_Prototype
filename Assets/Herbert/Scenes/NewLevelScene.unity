@@ -26180,6 +26180,52 @@ CircleCollider2D:
   m_Offset: {x: -0.0000021457672, y: -0.0000009536743}
   serializedVersion: 2
   m_Radius: 1.07
+--- !u!1001 &1963632935
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 461022, guid: 90029c288d6be2f47bc1e5aecd88a59e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 461022, guid: 90029c288d6be2f47bc1e5aecd88a59e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 14.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 461022, guid: 90029c288d6be2f47bc1e5aecd88a59e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461022, guid: 90029c288d6be2f47bc1e5aecd88a59e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461022, guid: 90029c288d6be2f47bc1e5aecd88a59e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461022, guid: 90029c288d6be2f47bc1e5aecd88a59e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461022, guid: 90029c288d6be2f47bc1e5aecd88a59e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 461022, guid: 90029c288d6be2f47bc1e5aecd88a59e, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 138108, guid: 90029c288d6be2f47bc1e5aecd88a59e, type: 2}
+      propertyPath: m_Name
+      value: Objective (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 90029c288d6be2f47bc1e5aecd88a59e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1977535132
 Prefab:
   m_ObjectHideFlags: 0

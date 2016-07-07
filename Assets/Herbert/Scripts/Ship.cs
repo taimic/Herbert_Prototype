@@ -34,6 +34,8 @@ public class Ship : MonoBehaviour {
         set
         {
             hasObjective = value;
+            foreach (var c in components)
+                c.ObjectiveBoost(hasObjective);
         }
     }
 

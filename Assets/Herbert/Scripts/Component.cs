@@ -67,6 +67,19 @@ public class Component : MonoBehaviour, iControll {
     private float downDuration = 2.0f;
     private float reviveTime = 0;
 
+    public void ObjectiveBoost(bool isBoost)
+    {
+        if (isBoost)
+        {
+            maxHealth = 6;
+            health = 0;
+        } else
+        {
+            maxHealth = 3;
+            health = 0;
+        }
+    }
+
     void Start() {
         health = maxHealth;
         baseGraphic = GetComponentInChildren<SpriteRenderer>();
