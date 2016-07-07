@@ -187,6 +187,7 @@ public class Component : MonoBehaviour, iControll {
     public void SwitchAttach() {
         // hold to lock attachment (~3sec)
         if (Input.GetButton("p" + playerID + "_action")) {
+            print("p" + playerID + "_action pressed");
             if (ship == null)
                 return;
             if (currentConfirmationTime < confirmationTime) {
