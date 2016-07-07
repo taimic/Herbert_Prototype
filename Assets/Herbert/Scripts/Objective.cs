@@ -2,11 +2,11 @@
 using System.Collections;
 
 public class Objective : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
+    private AudioSource audio;
+    // Use this for initialization
+    void Start () {
+        audio = GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -23,6 +23,8 @@ public class Objective : MonoBehaviour {
             return;
         
         comp.Ship.HasObjective = true;
+
+        AudioSource.PlayClipAtPoint(audio.clip, transform.position);
 
         Destroy(gameObject);
 

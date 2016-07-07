@@ -8,6 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Herbert/Scenes/Start.unity
   - enabled: 1
-    path: Assets/Herbert/Scenes/Phase_D.unity
+    path: Assets/Herbert/Scenes/LevelScene.unity
   - enabled: 1
     path: Assets/Herbert/Scenes/End.unity
