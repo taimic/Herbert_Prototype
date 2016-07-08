@@ -5175,7 +5175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9191284b058eef549b7108b5f04e1117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensityMultiplier: 1.28
+  intensityMultiplier: 0.88
   generalIntensity: 0.115
   blackIntensity: 1
   whiteIntensity: 1
@@ -16257,7 +16257,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 461022, guid: 90029c288d6be2f47bc1e5aecd88a59e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 144.4
+      value: 144.8
       objectReference: {fileID: 0}
     - target: {fileID: 461022, guid: 90029c288d6be2f47bc1e5aecd88a59e, type: 2}
       propertyPath: m_LocalPosition.y
@@ -16290,6 +16290,14 @@ Prefab:
     - target: {fileID: 138108, guid: 90029c288d6be2f47bc1e5aecd88a59e, type: 2}
       propertyPath: m_Name
       value: Objective
+      objectReference: {fileID: 0}
+    - target: {fileID: 461022, guid: 90029c288d6be2f47bc1e5aecd88a59e, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 461022, guid: 90029c288d6be2f47bc1e5aecd88a59e, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90029c288d6be2f47bc1e5aecd88a59e, type: 2}
@@ -22290,7 +22298,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ea4bb29ca9a985849bfcfd07198def23, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.092
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
