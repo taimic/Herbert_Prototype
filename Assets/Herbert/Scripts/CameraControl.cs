@@ -67,6 +67,11 @@ public class CameraControl : MonoBehaviour {
         // Add the edge buffer to the size.
         size += 2;
 
+
+    if (Ship.ships.Count == 1) {
+            size += 7;
+        }
+
         // Make sure the camera's size isn't below the minimum.
         size = Mathf.Max(size, 5);
 

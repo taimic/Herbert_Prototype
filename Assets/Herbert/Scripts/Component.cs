@@ -82,6 +82,9 @@ public class Component : MonoBehaviour, iControll {
             maxHealth = 6;
             health = 6;
             downDuration = 13.0f;
+            if (ComponentHit != null)
+                ComponentHit(health);
+
         } else
         {
             maxHealth = 3;
